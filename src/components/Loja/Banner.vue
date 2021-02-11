@@ -1,5 +1,7 @@
 <template>
-    <img src="../../assets/loja/banner.png"/>
+    <section class="banner">
+        <img src="../../assets/loja/banner.png"/>
+    </section>
 </template>
 
 <script lang="ts">
@@ -11,5 +13,6 @@ export default class Banner extends Vue {}
 <style lang="scss" scoped>
    img {
        width: 100%;
+       cursor: pointer;
    }
 </style>

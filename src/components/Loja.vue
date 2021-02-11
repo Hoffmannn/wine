@@ -1,17 +1,19 @@
 <template>
-    <main class="loja">
+    <div class="loja"> 
         <Banner/>
-    </main>
+        <Produtos/>
+    </div>
 
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'; 
-import Banner from './Loja/Banner.vue'
+import { Component, Vue } from 'vue-property-decorator';  
+import Banner from '@/components/Loja/Banner.vue'
+import Produtos from '@/components/Loja/Produtos.vue'
 
 @Component({
   components: {
-     Banner
+      Banner, Produtos
   },
 })
 export default class Loja extends Vue {}
@@ -19,9 +21,8 @@ export default class Loja extends Vue {}
 
 <style lang="scss" scoped>
   .loja {
-      width: 60vw;
-      height: 100%;
+      width: 60vw; 
       margin: 0 auto;
-      padding-top: 62px !important;
+      padding-top: 62px;
   }
 </style>
