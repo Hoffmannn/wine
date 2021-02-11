@@ -23,12 +23,15 @@ export default class Header extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-  header {   
+  header {  
     border-bottom: 0.5px solid #D5D5D5;
+    margin-top: 10px;
+    width: 100vw;
   }
   nav {   
     position: relative;
     width: 60vw;
+    left: 0;
     margin: 0 auto;
     display: flex;
     align-content: space-between;

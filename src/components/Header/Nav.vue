@@ -22,6 +22,9 @@ export default class Nav extends Vue {
       * {
         text-decoration: none;
         color: #666;
+        :hover {
+          color: #555
+        }
         margin: 20px 0 20px 40px;
         font-family: Lato;
         font-size: 20px;
@@ -29,8 +32,7 @@ export default class Nav extends Vue {
         font-weight: 400;
         line-height: 24px;
         letter-spacing: 0px;
-        text-align: left;
-
+        text-align: left; 
       }
   }
 </style>
