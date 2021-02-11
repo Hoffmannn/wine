@@ -1,14 +1,16 @@
 <template> 
     <main class="home">
-       
+       <Loja/>
     </main> 
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'; 
+import Loja from '../components/Loja.vue'
 
 @Component({
   components: { 
+    Loja
   },
 })
 export default class Home extends Vue {}
@@ -16,9 +18,6 @@ export default class Home extends Vue {}
 
 <style lang="scss" scoped>
  main {
-   width: 60vw;
-   background-color: #aaa;
-   margin: 0 auto;
-
+   background-color: #F5F5F5;
  }
 </style>
