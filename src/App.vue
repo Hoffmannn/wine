@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header class="header"/>
     <router-view/>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator'; 
 import Header from '@/components/Header.vue'; // @ is an alias to /src
 
 @Component({
@@ -17,25 +17,14 @@ import Header from '@/components/Header.vue'; // @ is an alias to /src
 export default class App extends Vue {}
 </script>
 
-<style lang="scss">
+<style lang="scss"> 
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+} 
 </style>

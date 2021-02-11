@@ -1,19 +1,37 @@
-<template> 
-    <Nav/>
+<template>
+  <header>
+    <nav > 
+      <Logo/>
+      <Nav/>
+      <IconeCarrinho/>
+    </nav>
+  </header> 
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import Logo from '@/components/Header/Logo.vue'
 import Nav from '@/components/Header/Nav.vue'
+import IconeCarrinho from '@/components/Header/IconeCarrinho.vue'
 
 @Component({
   components: {
-    Nav,
+    Logo, Nav, IconeCarrinho
   },
 })
 export default class Header extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-
+  header {   
+    border-bottom: 0.5px solid #D5D5D5;
+  }
+  nav {   
+    position: relative;
+    width: 60vw;
+    margin: 0 auto;
+    display: flex;
+    align-content: space-between;
+    align-items: center; 
+  }
 </style>

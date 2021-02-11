@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav> 
       <router-link to="/clube">Clube</router-link>
       <router-link to="/">Loja</router-link>
       <router-link to="/produtores">Produtores</router-link>
@@ -17,14 +17,12 @@ export default class Nav extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-  nav { 
-      width: 60vw; 
-      margin: 0 auto;
+<style lang="scss" scoped> 
+  nav {  
       * {
         text-decoration: none;
         color: #666;
-        margin: 20px;
+        margin: 20px 0 20px 40px;
         font-family: Lato;
         font-size: 20px;
         font-style: normal;
