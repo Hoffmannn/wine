@@ -27,6 +27,7 @@ export default class Header extends Vue {}
     border-bottom: 0.5px solid #D5D5D5;
     margin-top: 10px;
     width: 100vw;
+    height: 65px;
   }
   nav {   
     position: relative;
