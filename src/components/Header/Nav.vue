@@ -50,7 +50,7 @@ export default class Nav extends Vue {
         }
         li {
           list-style-type: none;
-          margin-right: 40px;
+          margin-right: 2vw;
         }
       }
       * {
@@ -87,9 +87,10 @@ export default class Nav extends Vue {
       left: -90px;
       top: 0;
       margin: 0;
-      width: 150px;  
+      width: 200px;  
       padding-top: 10px;
       padding-bottom: 20px;
+          border-bottom: 0.5px solid #D5D5D5;
 
         figure {
           width: 100%;

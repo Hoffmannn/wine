@@ -35,7 +35,8 @@ export default class Produto extends Vue {
 </script>
 
 <style lang="scss" scoped> 
-    .produto { 
+    .produto {
+        color: #1D1D1B;
         display: flex;
         justify-content: space-around;
         width: 30%; 
@@ -95,5 +96,26 @@ export default class Produto extends Vue {
                 }
             }
         }
+    }
+
+    @media screen and (max-width: 1170px) {
+        .produto {
+            flex-direction: column;
+            justify-content: space-between;
+            width: 180px; 
+            padding: 24px; 
+
+            .detalhes { 
+                justify-content: space-between;
+                span {
+                    margin-bottom: 11px;
+                }
+            }
+            
+        }
+        * {
+                text-align: center !important;
+            }
+
     }
 </style>

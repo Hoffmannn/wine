@@ -78,4 +78,13 @@ export default class Produtos extends Vue {
       -o-animation: rotating 1s linear infinite;
       animation: rotating 1s linear infinite;
       }
+
+      @media screen and (max-width: 1150px) {
+            .produtos {
+                  flex-wrap: nowrap;
+                  overflow: scroll;
+                  gap: 16px;
+            }
+    
+      }
 </style>

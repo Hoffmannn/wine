@@ -16,9 +16,5 @@ import Loja from '../components/Loja.vue'
 export default class Home extends Vue {}
 </script>
 
-<style lang="scss" scoped>
- main {
-   background-color: #F5F5F5;
-   height: 92vh
- }
+<style lang="scss" scoped> 
 </style>

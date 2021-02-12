@@ -1,6 +1,7 @@
 <template>
     <section class="banner">
-        <img src="../../assets/loja/banner.png"/>
+        <img class="desktop" src="../../assets/loja/banner.png"/>
+        <img class="mobile" src="../../assets/loja/banner_mobile.png"/> 
     </section>
 </template>
 
@@ -13,6 +14,19 @@ export default class Banner extends Vue {}
 <style lang="scss" scoped>
    img {
        width: 100%;
-       cursor: pointer;
+       cursor: pointer; 
    }
+
+   .mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: initial;
+    }
+  }
 </style>

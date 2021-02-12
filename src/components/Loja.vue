@@ -21,8 +21,15 @@ export default class Loja extends Vue {}
 
 <style lang="scss" scoped>
   .loja {
-      width: 60vw; 
+      width: 65vw; 
       margin: 0 auto;
       padding-top: 62px;
+  }
+
+   @media screen and (max-width: 1150px) {
+    .loja {
+      width: 90vw;
+      overflow-x: hidden;
+    }
   }
 </style>

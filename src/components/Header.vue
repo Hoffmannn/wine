@@ -24,24 +24,27 @@ export default class Header extends Vue {}
 
 <style lang="scss" scoped>
   header {   
+    background-color: #fff;
     border-bottom: 0.5px solid #D5D5D5;
-    margin-top: 10px;
-    width: 100vw;
+    padding-top: 10px;
+    width: 100%;
     height: 65px;
   }
   nav {   
     position: relative;
     width: 60vw;
-    left: 0;
+    left: 20px;
     margin: 0 auto;
     display: flex;
-    align-content: space-between;
-    align-items: center; 
+    align-content: space-between; 
   }
 
   @media screen and (max-width: 1150px) {
     .desktop {
       display: none;
+    }
+    nav {
+      width: 80vw;
     }
   }
 
