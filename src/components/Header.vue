@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav > 
-      <Logo/>
+      <Logo class="desktop"/>
       <Nav/>
       <IconeCarrinho/>
     </nav>
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import Logo from '@/components/Header/Logo.vue'
 import Nav from '@/components/Header/Nav.vue'
 import IconeCarrinho from '@/components/Header/IconeCarrinho.vue'
@@ -23,7 +23,7 @@ export default class Header extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-  header {  
+  header {   
     border-bottom: 0.5px solid #D5D5D5;
     margin-top: 10px;
     width: 100vw;
@@ -38,4 +38,11 @@ export default class Header extends Vue {}
     align-content: space-between;
     align-items: center; 
   }
+
+  @media screen and (max-width: 1150px) {
+    .desktop {
+      display: none;
+    }
+  }
+
 </style>

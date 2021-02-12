@@ -1,18 +1,20 @@
 <template>
     <nav > 
-      <ul ref="nav">
-        <figure>
-          <img src="../../assets/header/mobile_menu_icon.svg"/>
+      <ul :class="isMobileActive && 'active'">
+        <figure class="mobile" @click="toggleNav">
+          <img src="../../assets/header/logo.svg"/>
         </figure>
         <li v-for="link in links" :key="link.text"> 
             <router-link :to="link.path">{{link.text}}</router-link> 
         </li>
       </ul>
+
+      <div class="backdrop" :class="isMobileActive && 'active'"  @click="toggleNav"></div>
     </nav>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Nav extends Vue {
@@ -28,11 +30,18 @@ export default class Nav extends Vue {
    {text: "Eventos",
     path: "/eventos"},
    ]
+  
+  isMobileActive = false
+  toggleNav(): void{
+  this.isMobileActive = !this.isMobileActive
+  }
 }
+
 </script>
 
 <style lang="scss" scoped> 
   nav {  
+      z-index: 2; 
       ul {
         display: flex; 
 
@@ -48,7 +57,7 @@ export default class Nav extends Vue {
         text-decoration: none;
         color: #666;
         :hover {
-          color: #555
+          color: #444
         } 
         font-family: Lato;
         font-size: 20px;
@@ -60,23 +69,63 @@ export default class Nav extends Vue {
       }
   }
 
+  .mobile {
+    display: none;
+  }
+
   @media screen and (max-width: 1150px) {
-    nav {  
-      ul { 
-      background-color: #fff; 
-      position: fixed;
-      left: 0;
-      top: 55px;
+    .mobile {
+      display: initial;
+      margin: 0 auto;
+    }
+    nav { 
+      ul {  
+      position: absolute;  
       flex-direction: column;
-      width: 150px; 
-      border-right: 0.5px solid #D5D5D5;
-      border-bottom: 0.5px solid #D5D5D5;
+      flex-flow: column-reverse;
+      background-color: #fff; 
+      left: -90px;
+      top: 0;
+      margin: 0;
+      width: 150px;  
+      padding-top: 10px;
       padding-bottom: 20px;
 
+        figure {
+          width: 100%;
+          cursor: pointer;
+        }
+
         li {
-          padding: 10px;
+          display: none;
+          padding: 20px 20px 20px 0; 
+        } 
+        &.active {
+          top: -10px;  
+          padding-top: 20px;
+          flex-flow: column; 
+          box-shadow: 2px 2px 10px #555;
+          
+          li {
+            display: initial;
+          }
         }
       }
+
+      .backdrop {
+        display: none;
+        &.active {
+          z-index: -1;
+          display: initial;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: #5555557e;
+        }
+      }
+      
     }
   }
 </style>
