@@ -1,5 +1,6 @@
-<template>   
-      <button>Adicionar</button>
+<template>    
+    <button v-if="disponivel">Adicionar</button>
+    <button v-else class="esgotado">Esgotado</button>
 </template>
 
 <script lang="ts">
@@ -8,6 +9,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component 
 export default class BotaoAdicionar extends Vue { 
     @Prop() produto!: object
+    @Prop() disponivel!: boolean
 }
 </script>
 
@@ -30,4 +32,9 @@ export default class BotaoAdicionar extends Vue {
     button:hover {
             background: #a00f61;
         }
+
+    .esgotado {
+        background: #A0A0A0 !important;
+        cursor: default;
+    }
 </style>

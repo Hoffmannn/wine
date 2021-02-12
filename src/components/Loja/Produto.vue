@@ -3,14 +3,19 @@
         <img :src="produto.image" alt="" srcset="">
         <section class="detalhes">
             <span class="nome">{{produto.name}}</span>
-            <span :class="produto.priceMember ? 'preco riscado' : 'preco' ">{{produto.priceStock | currency("R$",2, { decimalSeparator: ',' })}}</span>
-            <div :v-if="produto.priceMember" class="socio">
+ 
+            <span v-if="produto.available" :class="produto.priceMember ? 'preco riscado' : 'preco' ">
+                {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$",2, { decimalSeparator: ',' })}}
+            </span>
+            <div v-if="produto.available" :v-if="produto.priceMember" class="socio">
                 <span>Sócio Wine</span>
                 <span class="preco-socio"> 
                     {{produto.priceMember | currency("R$",2, { decimalSeparator: ',' })}}
                 </span>
-                <BotaoAdicionar/>
-            </div>
+                <BotaoAdicionar :disponivel="true"/>
+            </div> 
+
+            <BotaoAdicionar v-if="!produto.available" :disponivel="false"/>
         </section>
       </section>
 </template>
@@ -32,10 +37,14 @@ export default class Produto extends Vue {
 <style lang="scss" scoped> 
     .produto { 
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 30%; 
         background-color: #fff;
         padding: 15px 15px 15px 5px;
+
+        image {
+            width: 100%;
+        }
 
         .detalhes {
             display: flex;

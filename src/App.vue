@@ -30,6 +30,6 @@ export default class App extends Vue {}
 } 
 
 body { 
-  margin: 0;
+  margin: 0; 
 }
 </style>
