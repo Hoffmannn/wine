@@ -1,4 +1,4 @@
-<template>   
+<template>    
       <section class="produto">  
         <img :src="produto.image" alt="" srcset="">
         <section class="detalhes">
@@ -12,12 +12,13 @@
                 <span class="preco-socio"> 
                     {{produto.priceMember | currency("R$",2, { decimalSeparator: ',' })}}
                 </span>
-                <BotaoAdicionar :disponivel="true"/>
             </div> 
-
-            <BotaoAdicionar v-if="!produto.available" :disponivel="false"/>
+            <span v-if="produto.available" class="mobile">
+                Não sócio {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$",2, { decimalSeparator: ',' })}}
+            </span>
+            <BotaoAdicionar class="botao-adicionar" :disponivel="produto.available"/> 
         </section>
-      </section>
+      </section> 
 </template>
 
 <script lang="ts">
@@ -41,11 +42,7 @@ export default class Produto extends Vue {
         justify-content: space-around;
         width: 30%; 
         background-color: #fff;
-        padding: 15px 15px 15px 5px;
-
-        image {
-            width: 100%;
-        }
+        padding: 15px 15px 15px 5px; 
 
         .detalhes {
             display: flex;
@@ -98,24 +95,61 @@ export default class Produto extends Vue {
         }
     }
 
+    .mobile {
+        display: none;
+    }
+
     @media screen and (max-width: 1170px) {
-        .produto {
+         * {
+            text-align: center !important;
+        }
+        .mobile {
+            display: initial; 
+            text-transform: uppercase; 
+            color: #888888; 
+        }
+
+        .produto { 
             flex-direction: column;
             justify-content: space-between;
-            width: 180px; 
-            padding: 24px; 
+            align-items: stretch; 
+            width: 100%;
+            padding: 20px 20px;   
+                
+            img { 
+                    width: 130px;
+                    height: 200px;
+                    margin: 0 auto;
+                }
 
-            .detalhes { 
-                justify-content: space-between;
+            .detalhes {   
+                justify-content: space-around;
+
                 span {
                     margin-bottom: 11px;
                 }
-            }
-            
+                
+                .socio {
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    span {
+                        line-height: 100%;
+                        text-align: right !important;
+                    width: 90px;
+
+                    }
+
+                    .preco-socio {
+                        font-size: 110%;
+                        margin-left: 15px;
+                        margin-top: 8px;
+                    }
+                }
+            } 
         }
-        * {
-                text-align: center !important;
-            }
+       
+
+         
 
     }
 </style>
