@@ -42,7 +42,7 @@ export default class Header extends Vue {}
   @media screen and (max-width: 1150px) {
     .desktop {
       display: none;
-    }
+    } 
     nav {
       width: 80vw;
     }

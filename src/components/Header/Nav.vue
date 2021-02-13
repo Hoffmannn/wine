@@ -4,8 +4,8 @@
         <figure class="mobile" @click="toggleNav">
           <img src="../../assets/header/logo.svg"/>
         </figure>
-        <li v-for="link in links" :key="link.text"> 
-            <router-link :to="link.path">{{link.text}}</router-link> 
+        <li v-for="link in links" :key="link.text"  @click="toggleNav"> 
+            <router-link :to="link.path" >{{link.text}}</router-link> 
         </li>
       </ul>
 
@@ -77,8 +77,9 @@ export default class Nav extends Vue {
     .mobile {
       display: initial;
       margin: 0 auto;
+      
     }
-    nav { 
+    nav {  
       ul {  
       position: absolute;  
       flex-direction: column;
