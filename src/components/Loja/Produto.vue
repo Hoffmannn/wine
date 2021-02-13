@@ -125,6 +125,11 @@ export default class Produto extends Vue {
             .detalhes {   
                 justify-content: space-around;
 
+                .nome {
+                    width: 170px;
+                    display: block;
+                }
+
                 span {
                     margin-bottom: 11px;
                 }

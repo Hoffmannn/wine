@@ -81,6 +81,7 @@ export default class Produtos extends Vue {
 
       @media screen and (max-width: 1150px) {
             .produtos {
+                  margin-top: 24px;
                   flex-wrap: nowrap;
                   overflow: scroll;
                   gap: 16px;

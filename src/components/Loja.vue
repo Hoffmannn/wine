@@ -28,6 +28,7 @@ export default class Loja extends Vue {}
 
    @media screen and (max-width: 1150px) {
     .loja {
+      padding-top: 24px;
       width: 90vw;
       overflow-x: hidden;
     }
