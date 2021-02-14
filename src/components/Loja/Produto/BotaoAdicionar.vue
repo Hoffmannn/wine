@@ -12,11 +12,11 @@ export default class BotaoAdicionar extends Vue {
     @Prop() produto!: object
     @Prop() disponivel!: boolean 
     
-    @Action('atualizarCarrinho')
-    atualizarCarrinho!: (atualizarCarrinho: object) => void 
+    @Action('ATUALIZAR_CARRINHO')
+    ATUALIZAR_CARRINHO!: (ATUALIZAR_CARRINHO: object) => void 
     adicionarProduto(){ 
-        this.atualizarCarrinho(
-            {...this.produto, quantidade: 1}
+        this.ATUALIZAR_CARRINHO(
+            {...this.produto, quantity: 1}
         );  
     }
 }
