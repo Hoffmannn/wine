@@ -2,17 +2,23 @@
  <main class="area-icone"> 
       <img alt="Sacola Wine" src="../../assets/header/sacola.svg">  
       <section class="contador-itens"> 
-            <p>5</p>
+            <p>{{carrinho.length}}</p>
       </section>     
  </main>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import {mapState} from 'vuex'
 
-@Component 
-export default class IconeCarrinho extends Vue { 
- 
+@Component({
+  // omit the namespace argument ('myModule') if you are not using namespaced modules
+  computed: mapState([ 
+    'carrinho',
+  ]),
+})
+export default class IconeCarrinho extends Vue {
+  public carrinho!: object[]; 
 }
 </script>
 

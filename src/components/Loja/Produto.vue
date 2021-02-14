@@ -16,7 +16,7 @@
             <span v-if="produto.available" class="mobile">
                 Não sócio {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$",2, { decimalSeparator: ',' })}}
             </span>
-            <BotaoAdicionar class="botao-adicionar" :disponivel="produto.available"/> 
+            <BotaoAdicionar class="botao-adicionar" :disponivel="produto.available" :produto="produto"/> 
         </section>
       </section> 
 </template>

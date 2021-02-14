@@ -1,16 +1,26 @@
 <template>    
-    <button v-if="disponivel">Adicionar</button>
+    <button @click.stop="adicionarProduto" v-if="disponivel">Adicionar</button>
     <button v-else class="esgotado">Esgotado</button>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'; 
+import { Action } from 'vuex-class'
 
-@Component 
-export default class BotaoAdicionar extends Vue { 
+@Component
+export default class BotaoAdicionar extends Vue {
     @Prop() produto!: object
-    @Prop() disponivel!: boolean
+    @Prop() disponivel!: boolean 
+    
+    @Action('atualizarCarrinho')
+    atualizarCarrinho!: (atualizarCarrinho: object) => void 
+    adicionarProduto(){ 
+        this.atualizarCarrinho(
+            {...this.produto, quantidade: 1}
+        );  
+    }
 }
+
 </script>
 
 <style lang="scss" scoped>  
