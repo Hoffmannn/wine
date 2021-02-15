@@ -18,8 +18,11 @@ import IconeCarrinho from '@/components/Header/IconeCarrinho.vue'
   components: {
     Logo, Nav, IconeCarrinho
   },
+ 
 })
-export default class Header extends Vue {}
+export default class Header extends Vue {
+ 
+}
 </script>
 
 <style lang="scss" scoped>

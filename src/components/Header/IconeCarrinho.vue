@@ -1,5 +1,5 @@
-<template>   
- <main class="area-icone"> 
+<template >   
+ <main class="area-icone" @click="toggleWineBox" > 
       <img alt="Sacola Wine" src="../../assets/header/sacola.svg">  
       <section class="contador-itens"> 
             <p>{{carrinho.length}}</p>
@@ -10,23 +10,27 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import {mapState} from 'vuex'
+import { Action } from 'vuex-class'
 
-@Component({
-  // omit the namespace argument ('myModule') if you are not using namespaced modules
+@Component({ 
   computed: mapState([ 
-    'carrinho',
+    'carrinho','wineBox'
   ]),
 })
 export default class IconeCarrinho extends Vue {
   public carrinho!: object[]; 
+
+  @Action('TOGGLE_WINEBOX')
+    TOGGLE_WINEBOX!: (TOGGLE_WINEBOX: void) => void 
+
+    toggleWineBox(){ 
+        this.TOGGLE_WINEBOX()
+    }
 }
 </script>
 
 <style lang="scss" scoped> 
- .area-icone {  
-       position: absolute;
-       right: 0;
-       top: 0; 
+ .area-icone {     
 
       .contador-itens   { 
             position: absolute;

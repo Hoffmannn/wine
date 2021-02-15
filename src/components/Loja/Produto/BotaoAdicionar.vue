@@ -14,11 +14,17 @@ export default class BotaoAdicionar extends Vue {
     
     @Action('ATUALIZAR_CARRINHO')
     ATUALIZAR_CARRINHO!: (ATUALIZAR_CARRINHO: object) => void 
+
+    @Action('TOGGLE_WINEBOX')
+    TOGGLE_WINEBOX!: (TOGGLE_WINEBOX: void) => void 
+
     adicionarProduto(){ 
         this.ATUALIZAR_CARRINHO(
             {...this.produto, quantity: 1}
         );  
+        this.TOGGLE_WINEBOX()
     }
+ 
 }
 
 </script>

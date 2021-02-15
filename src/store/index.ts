@@ -14,10 +14,10 @@ interface Produto {
 }
 
 const carrinho: Produto[] = [];
-
 export default new Vuex.Store({
   state: {
     carrinho,
+    wineBox: false,
   },
   mutations: {
     ATUALIZAR_CARRINHO(state, payload) {
@@ -25,7 +25,7 @@ export default new Vuex.Store({
       const indexProduto = novoCarrinho.findIndex(
         (p) => p.name == payload.name
       );
-      if (indexProduto > 0) {
+      if (indexProduto >= 0) {
         novoCarrinho[indexProduto] = {
           ...novoCarrinho[indexProduto],
           quantity: novoCarrinho[indexProduto].quantity + 1,
@@ -33,16 +33,22 @@ export default new Vuex.Store({
         state.carrinho = novoCarrinho;
       } else state.carrinho = [...state.carrinho, payload];
     },
+
     limparCarrinho(state) {
       state.carrinho = [];
+    },
+
+    TOGGLE_WINEBOX(state) {
+      state.wineBox = !state.wineBox;
     },
   },
   actions: {
     ATUALIZAR_CARRINHO({ commit }, payload) {
       commit("ATUALIZAR_CARRINHO", payload);
     },
-    limparCarrinho({ commit }) {
-      commit("limparCarrinho");
+
+    TOGGLE_WINEBOX({ commit }) {
+      commit("TOGGLE_WINEBOX");
     },
   },
   modules: {},

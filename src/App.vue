@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <WineBox v-if="wineBox"/>
     <Header class="header"/>
     <router-view/>
   </div>
@@ -8,14 +9,21 @@
 <script lang="ts">
 import { Component,  Vue } from 'vue-property-decorator'; 
 import Vue2Filters from 'vue2-filters'
-import Header from '@/components/Header.vue'; // @ is an alias to /src
+import {mapState} from 'vuex'
+import { Action } from 'vuex-class'
+import Header from '@/components/Header.vue';
+import WineBox from '@/components/WineBox.vue';
 
 Vue.use(Vue2Filters)
 
 @Component({
   components: {
-    Header,
+    Header, WineBox
   },
+   computed: mapState([ 
+    'wineBox',
+  ]),
+  
 })
 export default class App extends Vue {}
 </script>

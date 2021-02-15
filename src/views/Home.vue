@@ -5,13 +5,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'; 
+import { Component, Vue } from 'vue-property-decorator';  
 import Loja from '../components/Loja.vue'
 
 @Component({
   components: { 
     Loja
   },
+ 
 })
 export default class Home extends Vue {}
 </script>
