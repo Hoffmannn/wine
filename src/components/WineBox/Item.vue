@@ -4,13 +4,15 @@
         <section class="detalhes">
             <section class="top"> 
                 <p class="nome">{{item.name}}</p>
-                <img class="imagem-remover" src="@/assets/wineBox/close.svg"/>
+                <img @click="removerItem(item)" class="imagem-remover" src="@/assets/wineBox/close.svg"/>
             </section>
             <section class="bottom">
                 <div class="box-quantidade">
-                    <span class="alterar-quantidade">-</span>
+                    <span :class="item.quantity > 1 ? 'alterar-quantidade' : 'inativo alterar-quantidade'"
+                        @click.stop="item.quantity > 1 && atualizarQuantidade({item : item, quantidade: -1})">-</span>
                     <span class="quantidade">{{item.quantity}}</span>
-                    <span class="alterar-quantidade">+</span>
+                    <span class="alterar-quantidade"
+                        @click.stop="atualizarQuantidade({item : item, quantidade: +1})">+</span>
                 </div> 
                     <span class="preco">
                         {{(this.item.priceMember * item.quantity ) | currency("R$ ",2, { decimalSeparator: ',' })}}
@@ -21,13 +23,31 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';  
+import { Component, Prop, Vue } from 'vue-property-decorator'; 
+import { Action } from 'vuex-class' 
+import {mapState} from 'vuex'
 
 @Component({ 
-   
+   computed: mapState([ 
+    'carrinho',
+  ]),
 }) 
 export default class Item extends Vue { 
     @Prop() item!: object  
+    @Action('REMOVER_ITEM')
+    REMOVER_ITEM!: (REMOVER_ITEM: void) => void 
+    @Action('ATUALIZAR_QUANTIDADE')
+    ATUALIZAR_QUANTIDADE!: (ATUALIZAR_QUANTIDADE) => void 
+
+     
+
+    removerItem(item){ 
+        this.REMOVER_ITEM(item)
+    }
+
+    atualizarQuantidade(payload){
+        this.ATUALIZAR_QUANTIDADE(payload)
+    }
 
 }
 </script>
@@ -101,7 +121,12 @@ export default class Item extends Vue {
                     text-align: center;
                     margin: 0 10px;
                     color: #888888;
-                    cursor: pointer; 
+                    cursor: pointer;  
+                }
+
+                .inativo {
+                    cursor: not-allowed;
+                    opacity: 0.4; 
                 }
 
                 .quantidade {

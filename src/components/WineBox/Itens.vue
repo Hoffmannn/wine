@@ -1,7 +1,7 @@
 <template>
     <ul class="itens"> 
-      <li v-for="item in carrinho" :key="item.name">
-        <Item class="item" :item="item"/> 
+      <li v-for="item in carrinho" :key="item.name"> 
+        <Item :item="item"/>
       </li>
     </ul>
 </template>
