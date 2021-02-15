@@ -1,8 +1,8 @@
 <template>
   <div class="wine-box">
-      <main>
-          <Header/>
-          <Produtos/>
+      <main> 
+        <Header/>
+        <Produtos/>
       </main>
       <div class="backdrop"  @click="toggleWineBox"></div>
   </div>
@@ -11,13 +11,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'; 
 import {mapState} from 'vuex'
-import { Action } from 'vuex-class'
+import { Action } from 'vuex-class' 
 import Header from '@/components/WineBox/Header.vue'
 import Produtos from '@/components/WineBox/Produtos.vue'
 
 @Component({
   components: {
-    Header, Produtos
+  Header, Produtos
   },
   computed: mapState([ 
     'carrinho','wineBox',

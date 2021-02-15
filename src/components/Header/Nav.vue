@@ -41,7 +41,7 @@ export default class Nav extends Vue {
 
 <style lang="scss" scoped> 
   nav {  
-      z-index: 2; 
+      z-index: 1; 
       ul {
         display: flex; 
 
@@ -79,7 +79,7 @@ export default class Nav extends Vue {
       margin: 0 auto;
       
     }
-    nav {  
+    nav {   
       ul {  
       position: absolute;  
       flex-direction: column;
@@ -103,6 +103,7 @@ export default class Nav extends Vue {
           padding: 20px 20px 20px 0; 
         } 
         &.active {
+          z-index: 4;
           top: -10px;  
           padding-top: 20px;
           flex-flow: column; 
@@ -117,7 +118,7 @@ export default class Nav extends Vue {
       .backdrop {
         display: none;
         &.active {
-          z-index: -1;
+          z-index: 3;
           display: initial;
           position: fixed;
           top: 0;

@@ -29,33 +29,40 @@ export default class IconeCarrinho extends Vue {
 }
 </script>
 
-<style lang="scss" scoped> 
+<style lang="scss" scoped>  
  .area-icone {     
+    position: relative;
+    cursor: pointer;
+    z-index: 2 !important;
+    .contador-itens   { 
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%; 
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 11px;
+      line-height: 15px;  
+      color: #5CB79F;  
+      display: flex;
+      justify-content: center;
+      align-items: center; 
 
-      .contador-itens   { 
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            background-color: #fff;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%; 
-            font-family: Open Sans;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 11px;
-            line-height: 15px;  
-            color: #5CB79F;  
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            p {
-                  position: absolute;
-                  top: 50;
-                  left: 50;
-            }
+      p {
+        position: absolute;
+        top: 50;
+        left: 50;
       }
+    }
  }
+
+  @media screen and (max-width: 1150px) {
+    .area-icone {
+      z-index: 0 !important
+    }
+  }
 </style>

@@ -40,7 +40,7 @@ export default class Header extends Vue {
     margin: 0 auto;
     display: flex;
     align-content: space-between; 
-  }
+  } 
 
   @media screen and (max-width: 1150px) {
     .desktop {
@@ -48,7 +48,7 @@ export default class Header extends Vue {
     } 
     nav {
       width: 80vw;
-    }
+    } 
   }
 
 </style>

@@ -1,3 +1,12 @@
 <template>
-    <h1></h1>
+    <p>Voltar</p>
 </template>
+
+<script lang="ts">
+import { Component,  Vue } from 'vue-property-decorator';  
+
+@Component({ 
+})
+export default class Header extends Vue {  
+}
+</script>

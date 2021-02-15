@@ -126,8 +126,10 @@ export default class Produto extends Vue {
                 justify-content: space-around;
 
                 .nome {
-                    width: 170px;
-                    display: block;
+                    width: 170px; 
+                    display: block; 
+                    margin: auto;
+                    margin-bottom: 11px;
                 }
 
                 span {
@@ -137,10 +139,11 @@ export default class Produto extends Vue {
                 .socio {
                     flex-direction: row;
                     justify-content: flex-end;
+
                     span {
                         line-height: 100%;
                         text-align: right !important;
-                    width: 90px;
+                        width: 90px;
 
                     }
 
