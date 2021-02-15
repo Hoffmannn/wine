@@ -13,7 +13,11 @@ interface Produto {
   quantity: number;
 }
 
-const carrinho: Produto[] = [];
+const storageCarrinho = localStorage.getItem("carrinho");
+let carrinho: Produto[] = [];
+if (storageCarrinho) {
+  carrinho = JSON.parse(storageCarrinho);
+}
 export default new Vuex.Store({
   state: {
     carrinho,
@@ -32,6 +36,8 @@ export default new Vuex.Store({
         };
         state.carrinho = novoCarrinho;
       } else state.carrinho = [...state.carrinho, payload];
+
+      localStorage.setItem("carrinho", JSON.stringify(state.carrinho));
     },
 
     limparCarrinho(state) {

@@ -2,7 +2,7 @@
     <nav > 
       <ul :class="isMobileActive && 'active'">
         <figure class="mobile" @click="toggleNav">
-          <img src="../../assets/header/logo.svg"/>
+          <img src="@/assets/header/logo.svg"/>
         </figure>
         <li v-for="link in links" :key="link.text"  @click="toggleNav"> 
             <router-link :to="link.path" >{{link.text}}</router-link> 
