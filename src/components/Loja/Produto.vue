@@ -45,20 +45,23 @@ export default class Produto extends Vue {
         color: #1D1D1B;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        width: 30%; 
+        justify-content: space-around; 
+        min-width: 30%;
         background-color: #fff;
         padding: 15px 15px 15px 5px; 
 
         .bg {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+
         }
 
         .detalhes {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            max-width: 200px !important;
 
             .nome {
                 display: flex;
@@ -136,6 +139,7 @@ export default class Produto extends Vue {
             flex-direction: column;
             justify-content: space-between;
             align-items: stretch; 
+            min-width: initial;
             width: 100%;
             padding: 20px 0;  
             margin-top: auto;
