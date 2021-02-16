@@ -71,7 +71,7 @@ export default class WineBox extends Vue {
       background-color: #5555557e;
     }
   
-  @media screen and (max-width: 1150px) {
+  @media screen and (max-width: 500px) {
      main {
        width: 100vw;
      }
