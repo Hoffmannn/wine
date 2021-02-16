@@ -1,7 +1,7 @@
 <template>   
       <div class="produtos">  
             <img v-if="produtos.length===0" src="@/assets/loja/bottle.svg" class="carregando rotating"/> 
-            <Produto v-for="produto in produtos" :key="produto.name" :produto="produto" />  
+            <Produto class="produto" v-for="produto in produtos" :key="produto.name" :produto="produto" />  
       </div>
 </template>
 
@@ -18,9 +18,13 @@ import Produto from '@/components/Loja/Produto.vue'
 export default class Produtos extends Vue {  
       produtos: Array<object> = []
       created(){
-            axios.get("https://run.mocky.io/v3/908ec5b5-1e5a-4602-9008-47719f7c6759")
-            .then(response => (this.produtos = response.data))
+           this.buscarProdutos()
       }
+
+      buscarProdutos(): void {
+             axios.get("https://run.mocky.io/v3/908ec5b5-1e5a-4602-9008-47719f7c6759")
+            .then(response => (this.produtos = response.data))
+            } 
 }
 </script>
 
