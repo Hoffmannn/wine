@@ -2,24 +2,25 @@
       <section class="produto">  
           <section class="bg">
               <img :src="produto.image" alt="" srcset="">
-        <section class="detalhes">
-            <span class="nome">{{produto.name}}</span>
- 
-            <span v-if="produto.available" :class="produto.priceMember ? 'preco riscado' : 'preco' ">
-                {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$ ",2, { decimalSeparator: ',' })}}
-            </span>
-            <div v-if="produto.available" :v-if="produto.priceMember" class="socio">
-                <span class="socio-wine-texto">Sócio Wine</span>
-                <span class="preco-socio"> 
-                   R$<p class="price-integer"> {{Math.trunc(produto.priceMember)}}</p>,
-                   <p class="price-decimal">{{Math.round(produto.priceMember.toFixed(2)%1*100)}}</p>
-                </span>   
-            </div> 
-            <span v-if="produto.available" class="mobile">
-                Não sócio {{(produto.pricePromotional ? produto.pricePromotional : produto.priceStock)  | currency("R$ ",2, { decimalSeparator: ',' })}}
-            </span>
-        <BotaoAdicionar class="botao-adicionar botao-desktop" :disponivel="produto.available" :produto="produto"/> 
-          </section>
+            <section class="detalhes">
+                <span class="nome">{{produto.name}}</span>
+                <section>
+                    <span v-if="produto.available" :class="produto.priceMember ? 'preco riscado' : 'preco' ">
+                        {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$ ",2, { decimalSeparator: ',' })}}
+                    </span>
+                    <div v-if="produto.available" :v-if="produto.priceMember" class="socio">
+                        <span class="socio-wine-texto">Sócio Wine</span>
+                        <span class="preco-socio"> 
+                        R$<p class="price-integer"> {{Math.trunc(produto.priceMember)}}</p>,
+                        <p class="price-decimal">{{Math.round(produto.priceMember.toFixed(2)%1*100)}}</p>
+                        </span>   
+                    </div> 
+                    <span v-if="produto.available" class="mobile">
+                        Não sócio {{(produto.pricePromotional ? produto.pricePromotional : produto.priceStock)  | currency("R$ ",2, { decimalSeparator: ',' })}}
+                    </span>
+                    <BotaoAdicionar class="botao-adicionar botao-desktop" :disponivel="produto.available" :produto="produto"/> 
+                </section>
+            </section>
         </section>
             <BotaoAdicionar class="botao-adicionar botao-mobile" :disponivel="produto.available" :produto="produto"/> 
      </section> 
@@ -46,7 +47,8 @@ export default class Produto extends Vue {
         display: flex;
         flex-direction: column;
         justify-content: space-around; 
-        min-width: 30%;
+        width: 380px;
+        min-width: 332px;
         background-color: #fff;
         padding: 15px 15px 15px 5px; 
 
@@ -62,6 +64,13 @@ export default class Produto extends Vue {
             flex-direction: column;
             justify-content: space-between;
             max-width: 200px !important;
+
+            section {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between
+            }
 
             .nome {
                 display: flex;
@@ -79,7 +88,7 @@ export default class Produto extends Vue {
                 line-height: 16px; 
             }
 
-            .riscado {
+            .riscado { 
                 text-decoration-line: line-through;
                 color: #888888;
             }
@@ -93,11 +102,13 @@ export default class Produto extends Vue {
                 .socio-wine-texto {
                     font-style: normal;
                     font-weight: bold;
-                    font-size: 15px; 
+                    font-size: 12px; 
                     text-transform: uppercase;
+                    margin-top: 10px;
+                    margin-bottom: -10px;
                 }
 
-                .preco-socio { 
+                .preco-socio {  
                     font-style: normal;
                     font-weight: bold;
                     font-size: 15px; 
@@ -139,8 +150,8 @@ export default class Produto extends Vue {
             flex-direction: column;
             justify-content: space-between;
             align-items: stretch; 
-            min-width: initial;
-            width: 100%;
+            min-width: initial; 
+            width: 205px;
             padding: 20px 0;  
             margin-top: auto;
             padding-top: 0;
@@ -166,6 +177,10 @@ export default class Produto extends Vue {
                     flex-direction: row;
                     justify-content: flex-end;
                     align-items: center;
+
+                    .socio-wine-texto {
+                        width: 70px;
+                    }
 
                     span {
                         line-height: 100%;
