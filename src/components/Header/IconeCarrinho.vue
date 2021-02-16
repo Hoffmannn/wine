@@ -36,8 +36,9 @@ export default class IconeCarrinho extends Vue {
     z-index: 2 !important;
     .contador-itens   { 
       position: absolute;
-      right: 0;
-      bottom: 0;
+      right: 2px;
+      bottom: 0; 
+      margin-bottom: 5px;
       background-color: #fff;
       height: 20px;
       width: 20px;
