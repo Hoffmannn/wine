@@ -1,29 +1,27 @@
-# wine
+# Teste Wine
 
-## Project setup
+## Instalação do projeto
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar para desenvolvimento (com hot-reloads) 
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilar e minificar para produção  
 ```
 npm run build
 ```
 
-### Run your unit tests
+### Realizar testes unitários
 ```
 npm run test:unit
 ```
 
-### Lints and fixes files
+### Rodar lints
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ 
