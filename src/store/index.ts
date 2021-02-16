@@ -1,17 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import Produto from "@/Interfaces/Produto";
 
 Vue.use(Vuex);
-
-interface Produto {
-  available: boolean;
-  image: string;
-  name: string;
-  priceMember: number;
-  pricePromotional: number;
-  priceStock: number;
-  quantity: number;
-}
 
 const storageCarrinho = localStorage.getItem("carrinho");
 let carrinho: Produto[] = [];

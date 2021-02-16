@@ -15,7 +15,7 @@
                         @click.stop="atualizarQuantidade({item : item, quantidade: +1})">+</span>
                 </div> 
                     <span class="preco">
-                        {{(this.item.priceMember * item.quantity ) | currency("R$ ",2, { decimalSeparator: ',' })}}
+                        R$ <span class="price-integer">{{Math.trunc(total)}}</span>,<span class="price-decimal">{{Math.trunc(total % 1 * 100)}}</span>  
                     </span> 
             </section>
         </section>
@@ -26,6 +26,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'; 
 import { Action } from 'vuex-class' 
 import {mapState} from 'vuex'
+import ProdutoI from "@/Interfaces/Produto"
 
 @Component({ 
    computed: mapState([ 
@@ -33,13 +34,15 @@ import {mapState} from 'vuex'
   ]),
 }) 
 export default class Item extends Vue { 
-    @Prop() item!: object  
+    @Prop() item!: ProdutoI  
     @Action('REMOVER_ITEM')
     REMOVER_ITEM!: (REMOVER_ITEM: void) => void 
     @Action('ATUALIZAR_QUANTIDADE')
     ATUALIZAR_QUANTIDADE!: (ATUALIZAR_QUANTIDADE) => void 
 
-     
+    get total(){
+        return this.item.priceMember * this.item.quantity
+    }
 
     removerItem(item){ 
         this.REMOVER_ITEM(item)
@@ -56,8 +59,8 @@ export default class Item extends Vue {
     .produto {
         padding: 16px 0;
         display: flex;
-        flex-direction: row;  
-        margin: 0 16px;
+        flex-direction: row; 
+        justify-content: center;  
 
         .imagem-produto {
             height: 132px;

@@ -30,7 +30,7 @@ export default class Itens extends Vue {
     
   }
   li {
-    margin: 0;
+    margin: 0 16px;
     padding: 0;
     list-style: none;
     border-top: 0.5px solid #D5D5D5;

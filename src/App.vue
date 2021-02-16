@@ -42,4 +42,17 @@ body {
   background-color: #F5F5F5; 
   padding-bottom: 20px;
 }
+
+.valor {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold; 
+  line-height: 17px;
+  text-align: right; 
+  color: #C81A78; 
+}
+ .price-integer {
+      font-size: 130% !important;
+      margin: 0;
+  }
 </style>

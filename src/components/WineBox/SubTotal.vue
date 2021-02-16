@@ -2,9 +2,12 @@
     <div>
        <section>
            <span class="subtotal">Subtotal</span>
-           <span class="valor">
-               {{total| currency("R$ ",2, { decimalSeparator: ',' })}}
-            </span>
+           <p v-if="total > 0" class="valor"> 
+               R$ <span class="price-integer">{{Math.trunc(total)}}</span>,<span class="price-decimal">{{Math.trunc(total % 1 * 100)}}</span>  
+            </p>
+            <p v-else class="valor">
+                R$ <span class="price-integer">0</span>,00
+            </p>
        </section>
        <section>
            <button>Finalizar pedido</button>
@@ -23,8 +26,10 @@ import {mapState} from 'vuex'
 })
 
 export default class SubTotal extends Vue {  
+  
   get total() { 
-      return this.$store.state.carrinho.reduce((acc, b) => (acc + b.priceMember * b.quantity),0) 
+      const carrinho: number = this.$store.state.carrinho.reduce((acc, b) => (acc + b.priceMember * b.quantity),0)
+      return carrinho.toFixed(2)
   }
 }
 </script>
@@ -56,14 +61,7 @@ export default class SubTotal extends Vue {
             color: #666666;
         }
 
-        .valor {
-            font-family: Lato;
-            font-style: normal;
-            font-weight: bold; 
-            line-height: 17px;
-            text-align: right; 
-            color: #C81A78;
-        }
+        
 
         button {
             margin: 16px auto;

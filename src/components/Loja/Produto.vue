@@ -1,28 +1,33 @@
 <template>    
       <section class="produto">  
-        <img :src="produto.image" alt="" srcset="">
+          <section class="bg">
+              <img :src="produto.image" alt="" srcset="">
         <section class="detalhes">
             <span class="nome">{{produto.name}}</span>
  
             <span v-if="produto.available" :class="produto.priceMember ? 'preco riscado' : 'preco' ">
-                {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$",2, { decimalSeparator: ',' })}}
+                {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$ ",2, { decimalSeparator: ',' })}}
             </span>
             <div v-if="produto.available" :v-if="produto.priceMember" class="socio">
-                <span>Sócio Wine</span>
+                <span class="socio-wine-texto">Sócio Wine</span>
                 <span class="preco-socio"> 
-                    {{produto.priceMember | currency("R$",2, { decimalSeparator: ',' })}}
-                </span>
+                   R$<p class="price-integer"> {{Math.trunc(produto.priceMember)}}</p>,
+                   <p class="price-decimal">{{Math.round(produto.priceMember.toFixed(2)%1*100)}}</p>
+                </span>   
             </div> 
             <span v-if="produto.available" class="mobile">
-                Não sócio {{produto.pricePromotional ? produto.pricePromotional : produto.priceStock | currency("R$",2, { decimalSeparator: ',' })}}
+                Não sócio {{(produto.pricePromotional ? produto.pricePromotional : produto.priceStock)  | currency("R$ ",2, { decimalSeparator: ',' })}}
             </span>
-            <BotaoAdicionar class="botao-adicionar" :disponivel="produto.available" :produto="produto"/> 
+        <BotaoAdicionar class="botao-adicionar botao-desktop" :disponivel="produto.available" :produto="produto"/> 
+          </section>
         </section>
-      </section> 
+            <BotaoAdicionar class="botao-adicionar botao-mobile" :disponivel="produto.available" :produto="produto"/> 
+     </section> 
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'; 
+import { Component, Prop, Vue } from 'vue-property-decorator';  
+import ProdutoI from "@/Interfaces/Produto"
 import BotaoAdicionar from '@/components/Loja/Produto/BotaoAdicionar.vue'
 
 @Component({
@@ -31,7 +36,7 @@ import BotaoAdicionar from '@/components/Loja/Produto/BotaoAdicionar.vue'
   },
 })
 export default class Produto extends Vue { 
-    @Prop() produto!: object
+    @Prop() produto!: ProdutoI  
 }
 </script>
 
@@ -39,10 +44,16 @@ export default class Produto extends Vue {
     .produto {
         color: #1D1D1B;
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
         width: 30%; 
         background-color: #fff;
         padding: 15px 15px 15px 5px; 
+
+        .bg {
+            display: flex;
+            flex-direction: row;
+        }
 
         .detalhes {
             display: flex;
@@ -73,25 +84,29 @@ export default class Produto extends Vue {
             .socio {
                 display: flex;
                 flex-direction: column;
+                justify-content: space-around;
+                
 
-                span {
+                .socio-wine-texto {
                     font-style: normal;
                     font-weight: bold;
-                    font-size: 15px;
-                    line-height: 10px; 
+                    font-size: 15px; 
                     text-transform: uppercase;
                 }
 
                 .preco-socio { 
                     font-style: normal;
                     font-weight: bold;
-                    font-size: 15px;
-                    line-height: 28px; 
+                    font-size: 15px; 
                     display: flex;
-                    align-items: center; 
+                    align-items: baseline; 
                     color: #B6116E;
                 }
             }
+        }
+
+        .botao-mobile {
+            display: none;
         }
     }
 
@@ -109,13 +124,23 @@ export default class Produto extends Vue {
             color: #888888; 
         }
 
+        .bg {
+            background-color: #fff;
+            padding: 0 12px 13px 12px; 
+            height: 340px;
+            width: 180px;  
+            display: block !important;
+        }
+
         .produto { 
             flex-direction: column;
             justify-content: space-between;
             align-items: stretch; 
             width: 100%;
-            padding: 20px 20px;   
-                
+            padding: 20px 0;  
+            margin-top: auto;
+            padding-top: 0;
+            background: none;
             img { 
                     width: 130px;
                     height: 200px;
@@ -123,7 +148,7 @@ export default class Produto extends Vue {
                 }
 
             .detalhes {   
-                justify-content: space-around;
+                justify-content: space-around; 
 
                 .nome {
                     width: 170px; 
@@ -131,14 +156,12 @@ export default class Produto extends Vue {
                     margin: auto;
                     margin-bottom: 11px;
                 }
-
-                span {
-                    margin-bottom: 11px;
-                }
+ 
                 
                 .socio {
                     flex-direction: row;
                     justify-content: flex-end;
+                    align-items: center;
 
                     span {
                         line-height: 100%;
@@ -154,6 +177,15 @@ export default class Produto extends Vue {
                     }
                 }
             } 
+
+            .botao-desktop {
+                display: none;
+            }
+
+            .botao-mobile {
+                display: initial;
+                margin-top: 7px;  
+            }
         }
        
 
