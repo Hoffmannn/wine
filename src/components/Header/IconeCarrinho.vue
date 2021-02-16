@@ -1,6 +1,6 @@
 <template >   
  <main class="area-icone" @click="toggleWineBox" > 
-      <img alt="Sacola Wine" src="@/assets/header/sacola.svg">  
+      <img alt="Sacola Wine" src="@/assets/header/sacola.png">  
       <section class="contador-itens"> 
             <p>{{carrinho.length}}</p>
       </section>     
