@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import Produtos from "@/components/Loja/Produtos.vue";
+import Produto from "@/components/Loja/Produto.vue";
 
 const produtos = [
   {
@@ -34,6 +35,17 @@ const produtos = [
 describe("Produtos.vue", () => {
   it("Renderiza o componente", () => {
     const wrapper = shallowMount(Produtos, {});
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe("Produto.vue", () => {
+  it("Renderiza o compenente recebendo props", () => {
+    const wrapper = shallowMount(Produto, {
+      propsData: {
+        produto: produtos[0],
+      },
+    });
     expect(wrapper.exists()).toBe(true);
   });
 });
