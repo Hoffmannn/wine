@@ -47,15 +47,15 @@ export default class Produto extends Vue {
         display: flex;
         flex-direction: column;
         justify-content: space-around; 
-        width: 380px;
-        min-width: 332px;
+        width: 30%;
+        max-width: 400px;
         background-color: #fff;
         padding: 15px 15px 15px 5px; 
 
         .bg {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
 
         }
 
