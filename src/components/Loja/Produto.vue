@@ -180,6 +180,7 @@ export default class Produto extends Vue {
 
                     .socio-wine-texto {
                         width: 70px;
+                        margin: 0;
                     }
 
                     span {
