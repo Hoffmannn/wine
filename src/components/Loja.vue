@@ -26,7 +26,7 @@ export default class Loja extends Vue {}
       padding-top: 62px;
   }
 
-   @media screen and (max-width: 1150px) {
+   @media screen and (max-width: 1000px) {
     .loja {
       padding-top: 24px;
       width: 90vw;
