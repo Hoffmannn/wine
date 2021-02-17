@@ -150,7 +150,7 @@ export default class Produto extends Vue {
             flex-direction: column;
             justify-content: space-between;
             align-items: stretch; 
-            min-width: initial; 
+            min-width: 205px; 
             width: 205px;
             padding: 20px 0;  
             margin-top: auto;
