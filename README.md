@@ -4,7 +4,7 @@
 
 ## Sobre
 
-Este é um projeto realizado para demonstrar meus conhecimentos em Vue.js. Utilizei a página principal do e-commerce Wine como exemplo. A página consome uma API com produtos e os renderiza na tela. o usuário pode adicionar os produtos ao carrinho e nele alterar as quantidades ou remover o produto.
+Este é um projeto realizado para demonstrar meus conhecimentos em Vue.js. Utilizei a página principal do e-commerce Wine como exemplo. A página consome uma API com produtos e os renderiza na tela. O usuário pode adicionar os produtos ao carrinho e nele alterar as quantidades ou remover o produto.
 
 ![Página Inicial](https://user-images.githubusercontent.com/12666548/111176995-96fad700-8588-11eb-9d8c-43b1046370ab.png)
 
